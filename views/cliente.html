@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lista de Bienes y Servicios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/cotizar.css">
+<!--===============================================================================================-->
+    <style type="text/css">
+        .auto-style1 {
+            width: 244px;
+        }
+        .auto-style2 {
+            width: 364px;
+        }
+        .auto-style3 {
+            width: 139px;
+        }
+        .auto-style5 {
+            width: 134px;
+        }
+        .auto-style6 {
+            width: 129px;
+        }
+    </style>
+</head>
+<body>
+	
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table id="productos-table" class="display" style="width:100%">
+						<thead>
+							<tr >
+								<th >Id</th>
+								<th >Name</th>
+								<th >Description</th>
+								<th >item Type</th>
+								
+								
+								<th >Comando</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th >Id</th>
+								<th >Name</th>
+								<th >Description</th>
+								<th >item Type</th>
+								
+								
+								<th >Comando</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+	<script src="dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="dataTables.bootstrap4.min.css">
+
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	
+    <p>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;</p>
+	
+		<form>
+			<fieldset disabled>
+			  <div class="form-group">
+				<label for="formGroupExampleInput">Id</label>
+				<input type="text" class="form-control" id="formId" placeholder="">
+			  </div>
+			  <div class="form-group">
+				<label for="formGroupExampleInput">Name</label>
+				<input type="text" class="form-control" id="formName" placeholder="">
+			  </div>
+				<div class="form-group">
+				<label for="formGroupExampleInput">Description</label>
+				<input type="text" class="form-control" id="formDescription" placeholder="">
+			  </div>
+				<div class="form-group">
+				<label for="formGroupExampleInput">item Type</label>
+				<input type="text" class="form-control" id="formItemType" placeholder="">
+			  </div>
+			</fieldset>
+		  <div class="form-group">
+			<label for="formGroupExampleInput">Cantidad</label>
+			<input type="text" class="form-control" id="formCantidad" placeholder="">
+		  </div>
+			<button type="button" class="btn btn-primary" onclick="return Cotizar();">Cotizar</button>
+			<button type="button" class="btn btn-danger" onclick="return CancelarCotizacion();">Cancelar</button>
+
+		</form>
+ 
+        <table id="cantidad-producto"  class="display"  style="width:20%;">
+			<thead>
+					<tr >
+						<th colspan="3" >Ingresar Cantidad a Cotizar</th>
+					</tr>
+					<tr >
+						<th >Id</th>
+						<th id="id" colspan="2"> &nbsp;</th>
+					</tr>
+					<tr>
+						<th >Name</th>
+						<th id="name" colspan="2">&nbsp;</th>
+					</tr>
+					<tr>
+						<th >Description</th>
+						<th id="description" colspan="2">&nbsp;</th>
+					</tr>
+					<tr>
+						<th >item Type</th>
+						<th id="itemtype" colspan="2">&nbsp;</th>
+					</tr>
+					<tr>
+						<th >Cantidad</th>
+						<th colspan="2">
+                            <input id="Cantidad" type="text" /></th>
+					</tr>
+					<tr>
+						<th ></th>
+						<th>
+                            <button type="button" class="btn btn-primary">Cotizar</button></th>
+						<th>
+                           <button type="button" class="btn btn-danger">Cancelar</button></th>
+					</tr>
+				</thead>
+				
+        </table>
+
+	
+</body>
+
+<script type="text/javascript">
+  
+	var editor;
+
+	$(document).ready(function () {
+
+        ocultarCantidad();
+		listarProductos1();
+    });
+
+    function ocultarCantidad() {
+        var ventana = document.getElementById('cantidad-producto');
+        ventana.style.display = 'none';
+    }
+
+    function visibleCantidad() {
+        var ventana = document.getElementById('cantidad-producto');
+        ventana.style.display = 'block';
+	}
+
+	function Cotizar() {
+		//alert('1');
+		//debugger;
+		id = document.getElementById('formId').value;
+		name = document.getElementById('formName').value;
+		description = document.getElementById('formDescription').value;
+		ItemType = document.getElementById('formItemType').value;
+		users = '1';
+		quotations = 'cotizacion';
+		if (id > 0) {
+			console.log('La Cotización ha sido enviada');
+            quotation = {
+                "id": id,
+                "name": name,
+                "description": description,
+                "itemtype": ItemType,
+				"users": users,
+				"quotations": quotations
+            }
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost:8080/quotation',
+                data: JSON.stringify(quotation),
+                success: function (data) {
+                    $('#offer').modal('hide');
+                    alert("Cotización Enviada Satisfactoriamente");
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Se ha presentado un error. Intente nuevamente.")
+                },
+                dataType: 'json',
+                contentType: "application/json"
+            });
+		}
+		else {
+            console.log('Mensaje de Error');
+        }
+        //alert(ItemType);
+        
+	}
+
+    function CancelarCotizacion() {
+        $('#formId').val('');
+        $('#formName').val('');
+        $('#formDescription').val('');
+        $('#formItemType').val('');
+        $('#formCantidad').val(0);
+
+    }
+
+        
+	function listarProductos1() {
+       		$.ajax({
+					//Lista de Productos
+					//url: 'http://localhost:55102/api/Productos',
+                    url:   'http://localhost:8080/items',
+					type: "GET",
+					data: {},
+					dataType: "json",
+					success: function (result) {
+						// On success, 'data' contains a list of products.  
+						var htmlContent = "";
+
+						$.each(result, function (key, item) {
+							htmlContent = htmlContent + "<tr><td>" + item.id + "</td><td>" + item.name + "</td><td>" + item.description + "</td><td>" + item.ItemType + "</td></tr>"; 
+						}); 
+						//data = [
+						//	{ id: 1, name: "1", description: "0", ItemType: "0" }
+						//];
+						//alert(result);
+						//debugger;
+						// Appending HTML content  
+						//$('#productos-table').append(htmlContent);
+						
+						$('#productos-table').DataTable({
+                           
+                            data: result,
+                            "columns": [
+                                { "data": "id" },
+                                { "data": "name" },
+                                { "data": "description" },
+								{ "data": "ItemType" },
+								
+								
+                                { "data": null }
+							],
+                            
+                            "columnDefs": [{
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button type=button class=btn btn- primary>Seleccionar</button>"
+                            }],
+                             select: true,
+                            
+						});
+
+                      
+
+                        $('#productos-table').on('click', 'button', function () {
+							//debugger;
+                            var table = $('#productos-table').DataTable();
+                            console.log($(this).parents('tr'));
+                            var data = table.row( $(this).parents('tr')).data();
+                            //alert('Adicionado a la cotización' + data.id + data.name);
+							//visibleCantidad();
+							$('#formId').val(data.id);
+							$('#formName').val(data.name);
+							$('#formDescription').val(data.description);
+							$('#formItemType').val(data.ItemType);
+                            $('#formCantidad').val(0);
+                            
+                        });
+					},
+					error: function (err) {
+						alert(err.statusText);
+					}
+				  });
+    }
+         
+	
+</script>
+
+</html>
