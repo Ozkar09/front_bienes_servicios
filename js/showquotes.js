@@ -4,7 +4,7 @@ $(document).ready(function() {
 	
 	queryString = queryString.substring(1);
 	var queries = queryString.split("&");
-	
+	console.log(queryString);
 	supplier = {
 		id: queries[0].replace("id=",""),
 		email: queries[1].replace("email=",""),

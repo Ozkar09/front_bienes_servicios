@@ -21,14 +21,14 @@ $(document).ready(function() {
 	      data: JSON.stringify(userLogin),
 	      success: function(data) {
 	        
-	        console.log("USUARIO LOGEADO" + data);
+	        console.log(data);
             
-            if (data.profile === "CLIENT") {
-            	console.log("CLIENTE REGISTRADO" + data);
-            	window.location.replace("../views/showoffers.html");
+            if (data.user.profile === "CLIENT") {
+				var queryString = "?id=" + data.user.id + "&email=" + data.user.email + "&name=" + data.user.name;
+            	window.location.replace("../views/showoffers.html" + queryString);
             } else{
-            	console.log("PROVEEDOR REGISTRADO" + data);
-            	window.location.replace("../views/showquotes.html");
+            	var queryString = "?id=" + data.user.id + "&email=" + data.user.email + "&name=" + data.user.name;
+            	window.location.replace("../views/showquotes.html" + queryString);
 			}
 	      },
 	      error: function (xhr, ajaxOptions, thrownError) {
