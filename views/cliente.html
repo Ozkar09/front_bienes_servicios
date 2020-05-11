@@ -7,25 +7,25 @@
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/cotizar.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/cotizar.css">
 <!--===============================================================================================-->
     <style type="text/css">
         .auto-style1 {
@@ -84,19 +84,19 @@
 	
 	
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="../vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../vendor/bootstrap/js/popper.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
+	<script src="../vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="../vendor/daterangepicker/moment.min.js"></script>
+	<script src="../vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="../vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -196,6 +196,16 @@
 
 	$(document).ready(function () {
 
+		var queryString = decodeURIComponent(window.location.search);
+	
+		queryString = queryString.substring(1);
+		var queries = queryString.split("&");
+		console.log(queryString);
+		client = {
+			id: queries[0].replace("id=",""),
+			email: queries[1].replace("email=",""),
+			name: queries[2].replace("name=","")
+		}
         ocultarCantidad();
 		listarProductos1();
     });
@@ -225,16 +235,16 @@
                 "id": id,
                 "name": name,
                 "description": description,
-                "itemtype": ItemType,
-				"users": users,
-				"quotations": quotations
+                "itemId": id,
+				"clientId": client.id
             }
+            console.log(quotation);
             $.ajax({
                 type: "POST",
                 url: 'http://localhost:8080/quotation',
                 data: JSON.stringify(quotation),
                 success: function (data) {
-                    $('#offer').modal('hide');
+                   
                     alert("Cotización Enviada Satisfactoriamente");
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -291,7 +301,7 @@
                                 { "data": "id" },
                                 { "data": "name" },
                                 { "data": "description" },
-								{ "data": "ItemType" },
+								{ "data": "itemType" },
 								
 								
                                 { "data": null }
@@ -318,7 +328,7 @@
 							$('#formId').val(data.id);
 							$('#formName').val(data.name);
 							$('#formDescription').val(data.description);
-							$('#formItemType').val(data.ItemType);
+							$('#formItemType').val(data.itemType);
                             $('#formCantidad').val(0);
                             
                         });
