@@ -141,13 +141,16 @@
 				<input type="text" class="form-control" id="formItemType" placeholder="">
 			  </div>
 			</fieldset>
-		  <div class="form-group">
-			<label for="formGroupExampleInput">Cantidad</label>
-			<input type="text" class="form-control" id="formCantidad" placeholder="">
-		  </div>
-			<button type="button" class="btn btn-primary" onclick="return Cotizar();">Cotizar</button>
-			<button type="button" class="btn btn-danger"  onclick="return Salir();">Salir</button>
-
+			  <div class="form-group">
+				<label for="formGroupExampleInput">Cantidad</label>
+				<input type="text" class="form-control" id="formCantidad" placeholder="">
+			  </div >
+			  <div class="text-left"> 
+				<button type="button" class="btn btn-primary text-left" onclick="return Cotizar();">Cotizar</button>
+			</div >
+			<div class="text-right"> 
+				<button type="button" class="btn btn-danger"  onclick="return Salir();">Salir</button>
+			</div >
 		</form>
  
         <table id="cantidad-producto"  class="display"  style="width:20%;">
