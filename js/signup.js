@@ -75,7 +75,7 @@ $(document).ready(function() {
                 success: function(data) {
                     if (user.profile === "CLIENT") {
                         console.log("CLIENTE REGISTRADO" + data);
-                        window.location.replace("../views/showoffers.html" + queryString);
+                        window.location.replace("../views/cliente.html" + queryString);
                     } else{
                         console.log("PROVEEDOR REGISTRADO" + data);
                         window.location.replace("../views/showquotes.html" + queryString);

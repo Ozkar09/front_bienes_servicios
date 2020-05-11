@@ -25,7 +25,7 @@ $(document).ready(function() {
             
             if (data.user.profile === "CLIENT") {
 				var queryString = "?id=" + data.user.id + "&email=" + data.user.email + "&name=" + data.user.name;
-            	window.location.replace("../views/showoffers.html" + queryString);
+            	window.location.replace("../views/cliente.html" + queryString);
             } else{
             	var queryString = "?id=" + data.user.id + "&email=" + data.user.email + "&name=" + data.user.name;
             	window.location.replace("../views/showquotes.html" + queryString);
