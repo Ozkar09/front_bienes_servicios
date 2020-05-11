@@ -76,10 +76,10 @@ $(document).ready(function() {
             	<td>${cotizacion.id}</td>
             	<td>${cotizacion.name}</td>
             	<td>${cotizacion.description}</td>
-            	<td>${cotizacion.client.name}</td>
-            	<td>${cotizacion.client.email}</td>
+            	<td>${cotizacion.userApp.name}</td>
+            	<td>${cotizacion.userApp.email}</td>
             	<td>
-                	<p data-placement="top" data-toggle="tooltip" title="Offer"><button class="btn btn-primary btn-xs" data-title="Offer" data-toggle="modal" data-target="#offer" ><span class="glyphicon glyphicon-pencil"></span></button></p>
+                	<p data-placement="top" data-toggle="tooltip" title="Offer"><button id="quote_${cotizacion.id}" class="btn btn-primary btn-xs offer" data-title="Offer" data-toggle="modal" data-target="#offer" ><span class="glyphicon glyphicon-pencil"></span></button></p>
               	</td>
             </tr>`)
         })
