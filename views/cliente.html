@@ -141,10 +141,7 @@
 				<input type="text" class="form-control" id="formItemType" placeholder="">
 			  </div>
 			</fieldset>
-			  <div class="form-group">
-				<label for="formGroupExampleInput">Cantidad</label>
-				<input type="text" class="form-control" id="formCantidad" placeholder="">
-			  </div >
+			
 			  <div class="text-left"> 
 				<button type="button" class="btn btn-primary text-left" onclick="return Cotizar();">Cotizar</button>
 			</div >
@@ -269,7 +266,7 @@
         $('#formName').val('');
         $('#formDescription').val('');
         $('#formItemType').val('');
-        $('#formCantidad').val(0);
+       
 	    window.location.replace("../views/login.html");
     }
 
@@ -289,13 +286,7 @@
 						$.each(result, function (key, item) {
 							htmlContent = htmlContent + "<tr><td>" + item.id + "</td><td>" + item.name + "</td><td>" + item.description + "</td><td>" + item.ItemType + "</td></tr>"; 
 						}); 
-						//data = [
-						//	{ id: 1, name: "1", description: "0", ItemType: "0" }
-						//];
-						//alert(result);
-						//debugger;
-						// Appending HTML content  
-						//$('#productos-table').append(htmlContent);
+						
 						
 						$('#productos-table').DataTable({
                            
@@ -332,7 +323,7 @@
 							$('#formName').val(data.name);
 							$('#formDescription').val(data.description);
 							$('#formItemType').val(data.itemType);
-                            $('#formCantidad').val(0);
+                            
                             
                         });
 					},
