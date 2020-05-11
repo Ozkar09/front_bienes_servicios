@@ -146,7 +146,7 @@
 			<input type="text" class="form-control" id="formCantidad" placeholder="">
 		  </div>
 			<button type="button" class="btn btn-primary" onclick="return Cotizar();">Cotizar</button>
-			<button type="button" class="btn btn-danger" onclick="return CancelarCotizacion();">Cancelar</button>
+			<button type="button" class="btn btn-danger"  onclick="return Salir();">Salir</button>
 
 		</form>
  
@@ -181,7 +181,7 @@
 						<th>
                             <button type="button" class="btn btn-primary">Cotizar</button></th>
 						<th>
-                           <button type="button" class="btn btn-danger">Cancelar</button></th>
+                            <button type="button" class="btn btn-danger">Cancelar</button></th>
 					</tr>
 				</thead>
 				
@@ -244,7 +244,7 @@
                 url: 'http://localhost:8080/quotation',
                 data: JSON.stringify(quotation),
                 success: function (data) {
-                   
+                
                     alert("Cotización Enviada Satisfactoriamente");
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -261,13 +261,13 @@
         
 	}
 
-    function CancelarCotizacion() {
+    function Salir() {
         $('#formId').val('');
         $('#formName').val('');
         $('#formDescription').val('');
         $('#formItemType').val('');
         $('#formCantidad').val(0);
-
+	    window.location.replace("../views/login.html");
     }
 
         
