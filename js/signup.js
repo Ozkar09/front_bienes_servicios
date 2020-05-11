@@ -68,12 +68,6 @@ $(document).ready(function() {
 
             var queryString = "?id=" + userCreated.id + "&email=" + userCreated.email + "&name=" + userCreated.name;
 
-            if (user.profile === "CLIENT") {
-                window.location.href = "../views/showoffers.html" + queryString;
-            } else{
-                window.location.href = "../views/showquotes.html" + queryString;
-            }
-
             $.ajax({
                 type: "POST",
                 url: 'http://localhost:8080/users',
@@ -81,10 +75,10 @@ $(document).ready(function() {
                 success: function(data) {
                     if (user.profile === "CLIENT") {
                         console.log("CLIENTE REGISTRADO" + data);
-                        window.location.replace("../views/showoffers.html");
+                        window.location.replace("../views/showoffers.html" + queryString);
                     } else{
                         console.log("PROVEEDOR REGISTRADO" + data);
-                        window.location.replace("../views/showquotes.html");
+                        window.location.replace("../views/showquotes.html" + queryString);
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
